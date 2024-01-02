@@ -1,0 +1,85 @@
+.Home {
+  background: #01001a;
+  width: 100vw;
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* justify-content: center; */
+}
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+}
+
+.item {
+  background: #ffffff16;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.4rem;
+  font-weight: 100;
+  border-radius: 1rem;
+}
+
+.main-grid {
+  display: grid;
+  height: 80vh;
+  width: 92vw;
+  gap: 0.8rem;
+  grid-template-areas:
+    "hello hello hello map project"
+    "hello hello hello map project"
+    "mode skills skills skills project"
+    "resume skills skills skills project"
+    "contact contact social about about"
+    "contact contact social about about";
+}
+.item-1 {
+  grid-area: hello;
+}
+.item-2 {
+  grid-area: map;
+}
+.item-3 {
+  grid-area: project;
+}
+.item-4 {
+  grid-area: mode;
+}
+.item-5 {
+  grid-area: resume;
+}
+.item-6 {
+  grid-area: skills;
+}
+.item-7 {
+  grid-area: contact;
+}
+.item-8 {
+  grid-area: social;
+}
+.item-9 {
+  grid-area: about;
+}
+
+@media only screen and (orientation: portrait) {
+  .item {
+    font-size: 1rem;
+  }
+  .main-grid {
+    gap: 0.6rem;
+    width: 88vw;
+    grid-template-areas:
+      "hello hello hello map map"
+      "hello hello hello map map"
+      "project project resume resume mode"
+      "project project skills skills skills"
+      "contact contact contact about about"
+      "social social social social social";
+  }
+}
