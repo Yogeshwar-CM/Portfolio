@@ -1,0 +1,26 @@
+.Mode .back {
+  width: 8rem;
+  background-color: var(--middle);
+  height: 4rem;
+  border-radius: 100rem;
+  display: flex;
+  cursor: pointer;
+  transition: background-color 1s ease;
+  align-items: center;
+  justify-content: start;
+}
+
+.Mode .back .ball {
+  width: 3.4rem;
+  cursor: pointer;
+  border-radius: 100rem;
+  transform: translateX(0);
+  transition: all 1s ease; 
+  margin: 0.4rem;
+  height: 3.4rem;
+  background-color: var(--full);
+}
+
+.Mode .clicked .ball {
+  transform: translateX(3.7rem);
+}

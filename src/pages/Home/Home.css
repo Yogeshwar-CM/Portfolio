@@ -1,12 +1,12 @@
 .Home {
-  background: #01001a;
   width: 100vw;
-  color: #fff;
   height: 100vh;
   display: flex;
   align-items: center;
+  transition: background-color 1s ease;
+  background-color: var(--main-bg);
+  color: var(--full-opp);
   flex-direction: column;
-  /* justify-content: center; */
 }
 .nav {
   display: flex;
@@ -16,7 +16,7 @@
 }
 
 .item {
-  background: #ffffff16;
+  background: var(--secondary-bg);
   text-align: center;
   display: flex;
   justify-content: center;

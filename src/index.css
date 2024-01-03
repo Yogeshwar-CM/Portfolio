@@ -3,8 +3,21 @@
 html {
   font-family: "Poppins";
 }
-
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
+}
+.light {
+  --main-bg: #dbdaf6;
+  --secondary-bg: #00000020;
+  --middle: #313131;
+  --full: #fff;
+  --full-opp: #000;
+}
+.dark {
+  --main-bg: #01001c;
+  --secondary-bg: #ffffff16;
+  --middle: #cccccc;
+  --full: #000000;
+  --full-opp: #ffffff;
 }
