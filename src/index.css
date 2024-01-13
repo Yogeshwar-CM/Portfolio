@@ -1,68 +1,41 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url("https://fonts.cdnfonts.com/css/amoera?styles=171023");
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  font-family: "amoera";
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+.dark {
+  --main: #000014;
+  --full: #000000;
+  --full-opp: #ffffff;
+  --light-opp: #eeeeee;
+  --box: #141426;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+.light {
+  --main: #f9f9ff;
+  --full: #ffffff;
+  --full-opp: #000000;
+  --light-opp: #2b2b2b;
+  --box: #d9d8eb;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: clamp(2rem, 1.8378rem + 0.8649vw, 4rem);
 }
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+h2 {
+  font-size: clamp(1.6rem, 1.4865rem + 0.6054vw, 3rem);
 }
-button:hover {
-  border-color: #646cff;
+h3 {
+  font-size: clamp(1.4rem, 1.3514rem + 0.2595vw, 2rem);
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+h4 {
+  font-size: clamp(1.2rem, 1.1595rem + 0.2162vw, 1.7rem);
 }
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+p {
+  font-size: clamp(1.25rem, 1.2297rem + 0.1081vw, 1.5rem);
+}
+.p-s {
+  font-size: clamp(1rem, 0.9878rem + 0.0649vw, 1.15rem);
 }
