@@ -1,19 +1,23 @@
 @import url("https://fonts.cdnfonts.com/css/amoera?styles=171023");
 
-
 * {
-  font-family: "amoera";
+  font-family: "poppins", sans-serif;
 }
-
+body {
+  margin: 0;
+  background-color: var(--main);
+}
 .dark {
   --main: #000014;
   --full: #000000;
+  --theme: #5d00f4;
   --full-opp: #ffffff;
   --light-opp: #eeeeee;
   --box: #141426;
 }
 
 .light {
+  --theme: #5d00f4;
   --main: #f9f9ff;
   --full: #ffffff;
   --full-opp: #000000;
@@ -38,4 +42,7 @@ p {
 }
 .p-s {
   font-size: clamp(1rem, 0.9878rem + 0.0649vw, 1.15rem);
+}
+section {
+  height: 99vh;
 }

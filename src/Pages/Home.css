@@ -1,0 +1,27 @@
+.Home {
+  background-color: var(--main);
+  color: var(--full-opp);
+  min-height: 100vh;
+}
+
+.hero-section {
+  width: 78vw;
+  display: flex;
+  margin-inline: auto;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.hero-body {
+  width: 44vw;
+}
+.hero-rs img {
+  width: 16rem;
+}
+.hero-head {
+  font-weight: 200;
+}
+.hero-head span {
+  font-weight: 500;
+  font-size: 3.2rem;
+}
