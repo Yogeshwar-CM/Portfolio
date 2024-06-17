@@ -1,19 +1,14 @@
 import React from "react";
-import Templates from "./components/templates";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./Pages/Home";
+import "./App.css";
+import Home from "./pages/Home.jsx";
 
-const App = () => {
+export default function App() {
   return (
-    <div className="App dark">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/templates" element={<Templates />}></Route>
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   );
-};
-
-export default App;
+}

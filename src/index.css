@@ -1,48 +1,57 @@
-@import url("https://fonts.cdnfonts.com/css/amoera?styles=171023");
+:root {
+  --font-primary: "Roboto", sans-serif;
 
-* {
-  font-family: "poppins", sans-serif;
+  /* Light Mode Variables */
+  --bg-light: #ffffff;
+  --font-light: #000000;
+  --box-light: #f0f0f0;
+  --theme-light: #007bff;
+  --font-secondary-light: #555555;
+
+  /* Dark Mode Variables */
+  --bg-dark: #090014;
+  --font-dark: #ffffff;
+  --box-dark: #181022;
+  --theme-dark: #26ffb1;
+  --font-secondary-dark: #dcdcdc;
 }
+
+/* Default to dark mode */
 body {
-  margin: 0;
-  background-color: var(--main);
-}
-.dark {
-  --main: #000014;
-  --full: #000000;
-  --theme: #5d00f4;
-  --full-opp: #ffffff;
-  --light-opp: #eeeeee;
-  --box: #141426;
+  background-color: var(--bg-dark);
+  color: var(--font-dark);
+  font-family: var(--font-primary);
 }
 
-.light {
-  --theme: #5d00f4;
-  --main: #f9f9ff;
-  --full: #ffffff;
-  --full-opp: #000000;
-  --light-opp: #2b2b2b;
-  --box: #d9d8eb;
+/* Box styles */
+.box {
+  background-color: var(--box-dark);
 }
 
-h1 {
-  font-size: clamp(2rem, 1.8378rem + 0.8649vw, 4rem);
+/* Theme color */
+.theme {
+  color: var(--theme-dark);
 }
-h2 {
-  font-size: clamp(1.6rem, 1.4865rem + 0.6054vw, 3rem);
+
+/* Secondary font color */
+.secondary-font {
+  color: var(--font-secondary-dark);
 }
-h3 {
-  font-size: clamp(1.4rem, 1.3514rem + 0.2595vw, 2rem);
+
+/* Light mode styles */
+body.light-mode {
+  background-color: var(--bg-light);
+  color: var(--font-light);
 }
-h4 {
-  font-size: clamp(1.2rem, 1.1595rem + 0.2162vw, 1.7rem);
+
+body.light-mode .box {
+  background-color: var(--box-light);
 }
-p {
-  font-size: clamp(1.25rem, 1.2297rem + 0.1081vw, 1.5rem);
+
+body.light-mode .theme {
+  color: var(--theme-light);
 }
-.p-s {
-  font-size: clamp(1rem, 0.9878rem + 0.0649vw, 1.15rem);
-}
-section {
-  height: 99vh;
+
+body.light-mode .secondary-font {
+  color: var(--font-secondary-light);
 }

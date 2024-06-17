@@ -1,42 +1,89 @@
+body {
+  margin: 1rem;
+}
 .Home {
-  background-color: var(--main);
-  color: var(--full-opp);
-  min-height: 100vh;
+  display: grid;
+  grid-template-columns: auto 1fr 1fr 1fr; /* 4 columns, first column auto-sized for sidebar */
+  grid-template-rows: repeat(3, auto); /* 3 rows, each auto-sized */
+  gap: 1.5rem; /* Gap between grid items */
+  grid-template-areas:
+    "sidebar about about profile"
+    "sidebar about about profile"
+    "sidebar skills skills projects"
+    "sidebar skills skills projects"
+    "sidebar contact contact projects"
+    "sidebar contact contact projects";
+  height: 92vh; /* Set overall height of the grid */
 }
 
-.hero-section {
-  width: 78vw;
-  display: flex;
-  margin-inline: auto;
-  justify-content: space-evenly;
-  align-items: center;
+.sidebar {
+  grid-area: sidebar;
+  background-color: var(--box-dark); /* Apply background color */
+  color: var(--font-dark); /* Apply font color */
+  border-radius: 0.8rem; /* Apply border radius */
+  padding: 1rem; /* Add padding for spacing */
+  display: flex; /* Make content stretch */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
 }
-.skills-section{
-  display: flex;
-  align-items: center;
-  gap: 4rem;
-  justify-content: center;
+
+.about {
+  grid-area: about;
+  background-color: var(--box-dark); /* Apply background color */
+  color: var(--font-dark); /* Apply font color */
+  border-radius: 0.8rem; /* Apply border radius */
+  padding: 1rem; /* Add padding for spacing */
+  display: flex; /* Make content stretch */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
 }
-.card {
-  width: 20rem;
-  height: 16rem;
-  background: rgba(255, 255, 255, 0.07);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(8.9px);
-  -webkit-backdrop-filter: blur(8.9px);
+
+.profile {
+  grid-area: profile;
+  background-color: var(--box-dark); /* Apply background color */
+  color: var(--font-dark); /* Apply font color */
+  border-radius: 0.8rem; /* Apply border radius */
+  padding: 1rem; /* Add padding for spacing */
+  display: flex; /* Make content stretch */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
 }
-.hero-body {
-  width: 44vw;
+
+.skills {
+  grid-area: skills;
+  background-color: var(--box-dark); /* Apply background color */
+  color: var(--font-dark); /* Apply font color */
+  border-radius: 0.8rem; /* Apply border radius */
+  padding: 1rem; /* Add padding for spacing */
+  display: flex; /* Make content stretch */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
 }
-.hero-rs img {
-  width: 16rem;
-  border-radius: 0.8rem;
+
+.projects {
+  grid-area: projects;
+  background-color: var(--box-dark); /* Apply background color */
+  color: var(--font-dark); /* Apply font color */
+  border-radius: 0.8rem; /* Apply border radius */
+  padding: 1rem; /* Add padding for spacing */
+  display: flex; /* Make content stretch */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
 }
-.hero-head {
-  font-weight: 200;
+
+.contact {
+  grid-area: contact;
+  background-color: var(--box-dark); /* Apply background color */
+  color: var(--font-dark); /* Apply font color */
+  border-radius: 0.8rem; /* Apply border radius */
+  padding: 1rem; /* Add padding for spacing */
+  display: flex; /* Make content stretch */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
 }
-.hero-head span {
-  font-weight: 500;
-  font-size: 3.2rem;
+
+/* Example of light mode */
+.light-mode {
+  background-color: #f0f0f0;
+  color: #333;
 }
