@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import profile from "../assets/profile.jpeg";
 import "./Home.css";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [rc, setRc] = useState(false);
@@ -82,11 +83,13 @@ const Home = () => {
         </div>
       </div>
       <div className="about">
-        Hello There, I am <span className="name">Yogeshwar</span>
-        <br /> FullStack Developer and designer
+        <div className="hey">
+          Hello There, I am <span className="name">Yogeshwar</span>
+          <br /> FullStack Developer and Designer
+        </div>
         <div className="about-btn">
           <i className="fa-solid fa-arrow-right" id="abt-btn"></i>
-          About
+          About Me
         </div>
       </div>
       <div className="profile">
@@ -95,7 +98,12 @@ const Home = () => {
       <div className="mode">MODE</div>
       <div className="skills">SKILLS</div>
       <div className="resume">RESUME</div>
-      <div className="projects">PROJECTS</div>
+      <div className="projects">
+        <h1 className="proj-title">PROJECTS</h1>
+        <span className="proj-btn">
+          <i className="fa-solid fa-arrow-right" id="proj-btn"></i>
+        </span>
+      </div>
       <div className="contact">CONTACT</div>
     </div>
   );

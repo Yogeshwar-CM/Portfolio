@@ -1,6 +1,6 @@
 :root {
   --font-primary: "Roboto", sans-serif;
-
+  --bc: clamp(0.8rem, 0.479rem + 0.857vw, 1.25rem);
   /* Light Mode Variables */
   --bg-light: #ffffff;
   --font-light: #000000;
@@ -12,7 +12,7 @@
   --bg-dark: #090014;
   --font-dark: #ffffff;
   --box-dark: #181022;
-  --theme-dark: #26ffb1;
+  --theme-dark: #26ffe9;
   --font-secondary-dark: #dcdcdc;
 }
 
