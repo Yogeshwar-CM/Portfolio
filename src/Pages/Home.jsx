@@ -104,7 +104,18 @@ const Home = () => {
           <i className="fa-solid fa-arrow-right" id="proj-btn"></i>
         </span>
       </div>
-      <div className="contact">CONTACT</div>
+      <div className="contact">
+        <div className="">
+          <div className="main-c">Need a Website?</div>
+          <p className="contact-c">
+            I accept freelance jobs, collaborations with startups / brands.
+          </p>
+        </div>
+        <div className="contact-btn">
+          <i className="fa-solid fa-arrow-right" id="contact-btn"></i>
+          Let's Talk
+        </div>
+      </div>
     </div>
   );
 };

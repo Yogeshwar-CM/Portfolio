@@ -85,7 +85,8 @@ body {
 }
 .resume {
   grid-area: resume;
-  font-weight: 8 00;
+  font-size: 1.25rem;
+  font-weight: 700;
   font-family: var(--font-primary);
 }
 .mode {
@@ -106,6 +107,16 @@ body {
 }
 .contact {
   grid-area: contact;
+  justify-content: space-around;
+  padding-inline: 1rem;
+}
+.contact-btn {
+  border-radius: 100rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--font-dark);
+  padding: 0.75rem 1.75rem;
 }
 
 .profile {
