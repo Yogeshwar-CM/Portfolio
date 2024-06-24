@@ -18,7 +18,7 @@
 
 /* Default to dark mode */
 body {
-  background-color: var(--bg-dark);
+  background-color: var(--font-light);
   color: var(--font-dark);
   font-family: var(--font-primary);
 }
