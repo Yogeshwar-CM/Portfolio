@@ -1,3 +1,27 @@
+.popover {
+  display: none;
+  z-index: 1000000;
+}
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+.redc {
+  width: 4px;
+  border-radius: 100rem;
+  height: 4px;
+  background: var(--theme-dark);
+  display: none;
+}
+#menu,
+#bell {
+  display: none;
+}
+
 .switch {
   display: inline-block;
   position: relative;
@@ -272,7 +296,9 @@
     transform: translateX(-50%);
   }
 }
-
+.menu-s {
+  display: none;
+}
 @keyframes scrollTextR {
   from {
     transform: translateX(-50%);
@@ -315,7 +341,42 @@
   color: var(--box-dark);
   background-color: var(--font-dark);
 }
+.sb {
+  background-color: var(--box-dark);
+}
 @media (max-width: 768px) {
+  #bell {
+    position: absolute;
+    display: block;
+    top: 2.5%;
+    right: 5%;
+  }
+  .menu-s {
+    display: block;
+  }
+  #menu {
+    position: absolute;
+    display: block;
+    transform: scale(1.2);
+    top: 2.5%;
+    left: 5%;
+  }
+  .popover-t {
+    display: block;
+    position: absolute;
+    margin-inline: 1rem;
+    top: 40%;
+    width: auto;
+  }
+  .redc {
+    display: block;
+    position: absolute;
+    top: 2%;
+    right: 4.5%;
+  }
+  .redcc {
+    display: none;
+  }
   .switch__label {
     width: 6rem;
     height: 3rem;
@@ -401,5 +462,8 @@
   }
   .contact {
     flex-direction: column;
+  }
+  .contact-btn {
+    padding: 0.6rem 1.2rem;
   }
 }

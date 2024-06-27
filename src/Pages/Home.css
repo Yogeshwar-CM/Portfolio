@@ -3,6 +3,15 @@ body {
   margin-top: 1.25rem;
   font-family: var(--font-primary);
 }
+.cold {
+  width: 12rem;
+  height: 16rem;
+  background-color: #ea376a;
+  filter: blur(4rem);
+  z-index: -10;
+  border-radius: 2rem;
+  position: absolute;
+}
 
 .Home {
   display: grid;
@@ -17,10 +26,6 @@ body {
     "sidebar contact contact contact projects"
     "sidebar contact contact contact projects";
   height: 92vh;
-}
-.popover {
-  display: none;
-  z-index: 1000000;
 }
 
 .sidebar,
@@ -38,6 +43,13 @@ body {
   justify-content: center;
   /* cursor: pointer; */
   align-items: center;
+
+  /* background: rgba(24, 16, 34, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(5.5px);
+  -webkit-backdrop-filter: blur(5.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18); */
 }
 .mode {
   cursor: default;
@@ -137,13 +149,6 @@ body {
   align-items: center;
   overflow: hidden; /* Ensure content stays within container */
 }
-.redc {
-  width: 4px;
-  border-radius: 100rem;
-  height: 4px;
-  background: var(--theme-dark);
-  display: none;
-}
 
 .about .name {
   color: var(--theme-dark); /* Color for your name */
@@ -192,10 +197,7 @@ body.light-mode .contact {
   background-color: var(--box-light);
   color: var(--font-light);
 }
-#menu,
-#bell {
-  display: none;
-}
+
 #abt-btn {
   font-size: clamp(1.2rem, 0.979rem + 0.59vw, 1.51rem);
   padding-right: 1rem;
@@ -218,40 +220,12 @@ body.light-mode .contact {
     padding-right: 0.25rem;
     margin-top: 0.4rem;
   }
-  
+
   body {
     margin-inline: 1rem;
     margin-top: 4rem;
   }
-  #bell {
-    position: absolute;
-    display: block;
-    top: 2.5%;
-    right: 5%;
-  }
-  #menu {
-    position: absolute;
-    display: block;
-    transform: scale(1.2);
-    top: 2.5%;
-    left: 5%;
-  }
-  .popover-t {
-    display: block;
-    position: absolute;
-    margin-inline: 1rem;
-    top: 40%;
-    width: auto;
-  }
-  .redc {
-    display: block;
-    position: absolute;
-    top: 2%;
-    right: 4.5%;
-  }
-  .redcc {
-    display: none;
-  }
+
   .Home {
     grid-template-rows: 0.25fr 0.75fr 0.75fr 0.75fr 2fr;
     grid-template-columns: 2fr 2fr 1fr 1fr;

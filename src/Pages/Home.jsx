@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import profile from "../assets/profile.jpeg";
 import { motion } from "framer-motion";
@@ -9,8 +9,38 @@ import Skills from "../components/Skills";
 import Resume from "../components/Resume";
 import Form from "../components/Form";
 import Projects from "../components/Projects";
+import Alert from "../components/Alert";
+import Menu from "../components/Menu";
 
 const Home = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const sidebarRef = useRef();
+
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleClickOutside = (event) => {
+    if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
+
+  const sidebarVariants = {
+    open: { x: 0, opacity: 1 },
+    closed: { x: "-100%", opacity: 0 },
+  };
   const [rc, setRc] = useState(false);
   const navigate = useNavigate();
   const [popoverOpen, setPopoverOpen] = useState(false);
@@ -26,51 +56,38 @@ const Home = () => {
   return (
     <AnimatedPage>
       <div className="Home">
-        <div className={popoverOpen ? "popover popover-t" : "popover"}>
-          <div
-            className="bg-blue-100 flex border border-blue-200 text-gray-800 rounded-lg p-4 dark:bg-blue-800/10 dark:border-blue-900 dark:text-white"
-            role="alert"
-          >
-            <div className="flex">
-              <div className="flex-shrink-0">
-                <svg
-                  className="flex-shrink-0 size-4 mt-1 mr-4"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <path d="M12 16v-4"></path>
-                  <path d="M12 8h.01"></path>
-                </svg>
-              </div>
-              <div className="ms-3">
-                <h3 className="font-semibold">Get the Best View on Desktop!</h3>
-                <div className="mt-2 text-sm text-gray-600 dark:text-neutral-400">
-                  Psst! Make sure you're on your desktop or laptop for the full
-                  experience. Let's explore my portfolio together and unleash
-                  its full potential!
-                </div>
-              </div>
-            </div>
-            <i
-              className="fa-solid fa-times close-button"
-              onClick={closePopover}
-            ></i>
-          </div>
-        </div>
-        <i className="fa-solid fa-bars-staggered" id="menu"></i>
-        <i className="fa-regular fa-bell" id="bell" onClick={bellClicked}></i>
-        <div className={rc ? "redc redcc" : "redc"}></div>
+        {/* <div className="cold"></div> */}
+        <Alert />
+        <Menu />
         <div className="sidebar">
           <span>
-            <i className="fa-solid fa-bars-staggered"></i>
+            <button onClick={toggleSidebar}>
+              <i className="fa-solid fa-bars-staggered text-2xl"></i>
+            </button>
+            <motion.div
+              ref={sidebarRef}
+              initial="closed"
+              animate={isOpen ? "open" : "closed"}
+              variants={sidebarVariants}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="fixed top-0 left-0 h-full w-64 sb text-white shadow-lg"
+              style={{ zIndex: 9999999999 }}
+            >
+              <div className="p-4 flex flex-col h-full">
+                <div className="flex justify-between items-center">
+                  <h2 className="text-2xl">Menu</h2>
+                  <button onClick={toggleSidebar} className="text-2xl">
+                    <i className="fa-solid fa-times"></i>
+                  </button>
+                </div>
+                <ul className="mt-4">
+                  <li className="mt-4">Home</li>
+                  <li className="mt-4">About</li>
+                  <li className="mt-4">Contact</li>
+                  <li className="mt-4">Services</li>
+                </ul>
+              </div>
+            </motion.div>
           </span>
           <span>
             <i className="fa-solid fa-house"></i>
