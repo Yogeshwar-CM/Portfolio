@@ -1,0 +1,111 @@
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, auto);
+  margin-top: 2.5rem;
+  gap: 1rem;
+  height: 90vh;
+  grid-template-areas:
+    "form form form resume"
+    "form form form mode"
+    "form form form socials"
+    "form form form socials";
+}
+
+.resume {
+  grid-area: resume;
+  background-color: var(--box-dark);
+  padding: 16px;
+  border-radius: 0.5rem;
+}
+
+.mode {
+  grid-area: mode;
+  background-color: var(--box-dark);
+  padding: 16px;
+  border-radius: 0.5rem;
+}
+
+.socials {
+  grid-area: socials;
+  background-color: var(--box-dark);
+  padding: 16px;
+  border-radius: 0.5rem;
+}
+.form-grid > input,
+.form-grid > textarea {
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  padding: 1rem;
+  background: #211e24;
+}
+.form-grid {
+  grid-area: form;
+  background-color: var(--box-dark);
+  padding: 1.25rem;
+  gap: 1rem;
+  display: grid;
+  grid-template-columns: 2fr 0.5fr 0.5fr;
+  grid-template-rows: 2fr 0.4fr 0.4fr;
+  grid-template-areas:
+    "msg msg msg"
+    "email email email"
+    "name name b";
+  border-radius: 0.5rem;
+}
+.cb {
+  grid-area: b;
+}
+
+.contact-btnn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100rem;
+  overflow: hidden;
+  cursor: pointer;
+  height: 4rem;
+  background-color: #007bff; /* Background color of the button */
+  transition: background-color 0.3s ease; /* Smooth transition for background color change */
+}
+
+.contact-btnn > i {
+  transform: rotate(-45deg);
+  font-size: 2rem;
+  transition: transform 0.3s;
+}
+
+.contact-btnn:hover {
+  background-color: #0056b3;
+}
+
+.contact-btnn:hover > i {
+  transform: rotate(0deg);
+}
+.email {
+  grid-area: email;
+}
+.name {
+  grid-area: name;
+}
+.message {
+  grid-area: msg;
+  resize: none;
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    gap: 0.75rem;
+    padding: 0;
+    margin-inline: 0.5rem;
+    grid-template-rows: 1fr 0.75fr 0.5fr 0.25fr;
+    grid-template-areas:
+      "form form form form"
+      "form form form form"
+      "mode mode resume resume"
+      "socials socials socials socials";
+  }
+  .contact-btnn > i {
+    font-size: 1.5rem;
+  }
+}

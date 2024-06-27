@@ -15,7 +15,16 @@ import Menu from "../components/Menu";
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
   const sidebarRef = useRef();
+  const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    // Simulating a delay for demonstration purposes
+    const timeout = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000); // Adjust the delay time as needed
+
+    return () => clearTimeout(timeout);
+  }, []);
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
@@ -58,7 +67,9 @@ const Home = () => {
       <div className="Home">
         {/* <div className="cold"></div> */}
         <Alert />
-        <Menu />
+        <span className="menu-s">
+          <Menu />
+        </span>
         <div className="sidebar">
           <span>
             <button onClick={toggleSidebar}>

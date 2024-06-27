@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./styles.css";
 
 export default function Alert() {
   const [rc, setRc] = useState(false);
   const [popoverOpen, setPopoverOpen] = useState(false);
+  const popoverRef = useRef();
+
   const bellClicked = () => {
     setRc(true);
     setPopoverOpen(true);
@@ -12,11 +14,33 @@ export default function Alert() {
   const closePopover = () => {
     setPopoverOpen(false);
   };
+
+  const handleClickOutside = (event) => {
+    if (popoverRef.current && !popoverRef.current.contains(event.target)) {
+      setPopoverOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (popoverOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [popoverOpen]);
+
   return (
     <>
       <i className="fa-regular fa-bell" id="bell" onClick={bellClicked}></i>
       <div className={rc ? "redc redcc" : "redc"}></div>
-      <div className={popoverOpen ? "popover popover-t" : "popover"}>
+      <div
+        ref={popoverRef}
+        className={popoverOpen ? "popover popover-t" : "popover"}
+      >
         <div
           className="bg-blue-100 flex border border-blue-200 text-gray-800 rounded-lg p-4 dark:bg-blue-800/10 dark:border-blue-900 dark:text-white"
           role="alert"

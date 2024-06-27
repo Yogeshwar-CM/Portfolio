@@ -34,7 +34,10 @@ export default function Menu() {
 
   return (
     <>
-      <button onClick={toggleSidebar} className="absolute top-2 left-4 p-1 menu-s">
+      <button
+        onClick={toggleSidebar}
+        className="M"
+      >
         <i className="fa-solid fa-bars-staggered text-2xl"></i>
       </button>
       <motion.div
