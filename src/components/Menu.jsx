@@ -34,12 +34,16 @@ export default function Menu() {
 
   return (
     <>
-      <button
-        onClick={toggleSidebar}
-        className="M"
-      >
+      <button onClick={toggleSidebar} className="M">
         <i className="fa-solid fa-bars-staggered text-2xl"></i>
       </button>
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm"
+          style={{ zIndex: 9999999998 }}
+          onClick={handleClickOutside}
+        />
+      )}
       <motion.div
         ref={sidebarRef}
         initial="closed"

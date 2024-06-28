@@ -6,6 +6,7 @@
   --font-light: #000000;
   --box-light: #f0f0f0;
   --theme-light: #007bff;
+
   --font-secondary-light: #555555;
 
   /* Dark Mode Variables */
@@ -25,7 +26,11 @@ body {
 
 /* Box styles */
 .box {
-  background-color: var(--box-dark);
+  background: rgba(30, 18, 46, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(13.5px);
+  -webkit-backdrop-filter: blur(13.5px);
+  border-radius: 10px;
 }
 
 /* Theme color */

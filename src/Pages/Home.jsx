@@ -18,10 +18,9 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulating a delay for demonstration purposes
     const timeout = setTimeout(() => {
       setIsLoading(false);
-    }, 2000); // Adjust the delay time as needed
+    }, 2000);
 
     return () => clearTimeout(timeout);
   }, []);
@@ -63,89 +62,98 @@ const Home = () => {
   };
 
   return (
-    <AnimatedPage>
-      <div className="Home">
-        {/* <div className="cold"></div> */}
-        <Alert />
-        <span className="menu-s">
-          <Menu />
-        </span>
-        <div className="sidebar">
-          <span>
-            <button onClick={toggleSidebar}>
-              <i className="fa-solid fa-bars-staggered text-2xl"></i>
-            </button>
-            <motion.div
-              ref={sidebarRef}
-              initial="closed"
-              animate={isOpen ? "open" : "closed"}
-              variants={sidebarVariants}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="fixed top-0 left-0 h-full w-64 sb text-white shadow-lg"
-              style={{ zIndex: 9999999999 }}
-            >
-              <div className="p-4 flex flex-col h-full">
-                <div className="flex justify-between items-center">
-                  <h2 className="text-2xl">Menu</h2>
-                  <button onClick={toggleSidebar} className="text-2xl">
-                    <i className="fa-solid fa-times"></i>
-                  </button>
+    <>
+      <div className="cold"></div>
+      <Alert />
+      <span className="menu-s">
+        <Menu />
+      </span>
+      <AnimatedPage>
+        <div className="Home">
+          <div className="sidebar">
+            <span>
+              <button onClick={toggleSidebar}>
+                <i className="fa-solid fa-bars-staggered text-2xl"></i>
+              </button>
+              {isOpen && (
+                <div
+                  className="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm"
+                  style={{ zIndex: 9999999990 }}
+                  onClick={handleClickOutside}
+                />
+              )}
+              <motion.div
+                ref={sidebarRef}
+                initial="closed"
+                animate={isOpen ? "open" : "closed"}
+                variants={sidebarVariants}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                className="fixed top-0 left-0 h-full w-64 sb text-white shadow-lg"
+                style={{ zIndex: 9999999999 }}
+              >
+                <div className="p-4 flex flex-col h-full">
+                  <div className="flex justify-between items-center">
+                    <h2 className="text-2xl">Menu</h2>
+                    <button onClick={toggleSidebar} className="text-2xl">
+                      <i className="fa-solid fa-times"></i>
+                    </button>
+                  </div>
+                  <ul className="mt-4">
+                    <li className="mt-4">Home</li>
+                    <li className="mt-4">About</li>
+                    <li className="mt-4">Contact</li>
+                    <li className="mt-4">Services</li>
+                  </ul>
                 </div>
-                <ul className="mt-4">
-                  <li className="mt-4">Home</li>
-                  <li className="mt-4">About</li>
-                  <li className="mt-4">Contact</li>
-                  <li className="mt-4">Services</li>
-                </ul>
-              </div>
-            </motion.div>
-          </span>
-          <span>
-            <i className="fa-solid fa-house"></i>
-            <i className="fa-solid fa-file"></i>
-            <i className="fa-solid fa-gears"></i>
-            <i
-              className="fa-solid fa-paper-plane"
-              onClick={() => {
-                navigate("/contact");
-              }}
-            ></i>
-          </span>
-          <div className="span">
-            <i className="fa-solid fa-circle-info"></i>
+              </motion.div>
+            </span>
+            <span>
+              <i className="fa-solid fa-house"></i>
+              <i className="fa-solid fa-file"></i>
+              <i className="fa-solid fa-gears"></i>
+              <i
+                className="fa-solid fa-paper-plane"
+                onClick={() => {
+                  navigate("/contact");
+                }}
+              ></i>
+            </span>
+            <div className="span">
+              <i className="fa-solid fa-circle-info"></i>
+            </div>
           </div>
-        </div>
-        <div className="about">
-          <div className="hey">
-            Hello There, I am <span className="name">Yogeshwar</span>
-            <br /> FullStack Developer and Designer
+          <div className="box about">
+            <div className="hey">
+              Hello There, I am <span className="name">Yogeshwar</span>
+              <br /> FullStack Developer and Designer
+            </div>
+            <div className="about-btn">
+              <i className="fa-solid fa-arrow-right" id="abt-btn"></i>
+              About Me
+            </div>
           </div>
-          <div className="about-btn">
-            <i className="fa-solid fa-arrow-right" id="abt-btn"></i>
-            About Me
+          <div className="profile box">
+            <img src={profile} alt="profile picture" className="profile-pic" />
           </div>
-        </div>
-        <div className="profile">
-          <img src={profile} alt="profile picture" className="profile-pic" />
-        </div>
-        <div className="mode">
-          <Mode />
-        </div>
-        <div className="skills">
-          <Skills />
-        </div>
-        <div className="resume">
-          <Resume />
-        </div>
-        <div className="projects">
-          <Projects />
-        </div>
+          <div className="mode box">
+            <Mode />
+          </div>
+          <div className="skills box">
+            <Skills />
+          </div>
+          <div className="box resume">
+            <Resume />
+          </div>
+          <div className="box projects">
+            <Projects />
+          </div>
 
-        <div className="contact">
-          <Form />
+          <div className="contact box">
+            <Form />
+          </div>
         </div>
-      </div>
-    </AnimatedPage>
+      </AnimatedPage>
+    </>
   );
 };
 
