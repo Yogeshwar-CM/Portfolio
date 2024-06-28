@@ -1,0 +1,27 @@
+.about-grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0.6rem;
+  grid-template-areas:
+    "main main main resume"
+    "main main main mode"
+    "main main main socials"
+    "main main main socials";
+  height: 90vh;
+  margin-top: 2rem;
+}
+.main-abt {
+  grid-area: main;
+  overflow-y: scroll;
+  padding: 2rem;
+}
+.resume {
+  grid-area: resume;
+}
+.mode {
+  grid-area: mode;
+}
+.socials {
+  grid-area: socials;
+}

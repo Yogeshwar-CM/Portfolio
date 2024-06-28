@@ -127,12 +127,22 @@ const Home = () => {
               Hello There, I am <span className="name">Yogeshwar</span>
               <br /> FullStack Developer and Designer
             </div>
-            <div className="about-btn">
+            <div
+              className="about-btn"
+              onClick={() => {
+                navigate("/about");
+              }}
+            >
               <i className="fa-solid fa-arrow-right" id="abt-btn"></i>
               About Me
             </div>
           </div>
-          <div className="profile box">
+          <div
+            className="profile box"
+            onClick={() => {
+              navigate("/about");
+            }}
+          >
             <img src={profile} alt="profile picture" className="profile-pic" />
           </div>
           <div className="mode box">
