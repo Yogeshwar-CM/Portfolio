@@ -25,3 +25,19 @@
 .socials {
   grid-area: socials;
 }
+
+@media (max-width: 768px) {
+  .about-grid {
+    display: grid;
+    grid-template-rows: 1.75fr 1fr 0.75fr 0.75fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 0.5rem;
+    grid-template-areas:
+      "main main main main"
+      "main main main main"
+      "resume resume mode mode"
+      "socials socials socials socials";
+    height: 82vh;
+    margin-top: 2rem;
+  }
+}

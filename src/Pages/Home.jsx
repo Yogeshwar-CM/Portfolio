@@ -63,6 +63,7 @@ const Home = () => {
 
   return (
     <>
+      <div className="cold2"></div>
       <div className="cold"></div>
       <Alert />
       <span className="menu-s">
@@ -70,7 +71,7 @@ const Home = () => {
       </span>
       <AnimatedPage>
         <div className="Home">
-          <div className="sidebar">
+          <div className="sidebar box">
             <span>
               <button onClick={toggleSidebar}>
                 <i className="fa-solid fa-bars-staggered text-2xl"></i>
@@ -107,7 +108,7 @@ const Home = () => {
                 </div>
               </motion.div>
             </span>
-            <span>
+            {/* <span>
               <i className="fa-solid fa-house"></i>
               <i className="fa-solid fa-file"></i>
               <i className="fa-solid fa-gears"></i>
@@ -117,7 +118,7 @@ const Home = () => {
                   navigate("/contact");
                 }}
               ></i>
-            </span>
+            </span> */}
             <div className="span">
               <i className="fa-solid fa-circle-info"></i>
             </div>

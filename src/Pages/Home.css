@@ -6,13 +6,42 @@ body {
 .cold {
   width: 12rem;
   height: 16rem;
-  background-color: #ea376a;
+  background-color: #1c23af87;
   filter: blur(4rem);
   z-index: -10;
+  animation: mov 10s linear infinite;
   border-radius: 2rem;
   position: absolute;
 }
-
+.cold2 {
+  width: 12rem;
+  height: 26rem;
+  background-color: #1c23af5c;
+  filter: blur(4rem);
+  z-index: -10;
+  border-radius: 2rem;
+  animation: mov 5s linear infinite;
+  top: 50%;
+  right: 4%;
+  position: absolute;
+}
+@keyframes mov {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(100px, 0);
+  }
+  50% {
+    transform: translate(-300px, -500px);
+  }
+  75% {
+    transform: translate(0, 20px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
 .Home {
   display: grid;
   gap: 0.75rem;
@@ -43,8 +72,6 @@ body {
   justify-content: center;
   /* cursor: pointer; */
   align-items: center;
-
-
 }
 .mode {
   cursor: default;

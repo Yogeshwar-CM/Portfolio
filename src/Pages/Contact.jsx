@@ -22,7 +22,7 @@ export default function Contact() {
       <Animated>
         <div className="Contact">
           <div className="contact-grid">
-            <form className="form-grid">
+            <form className="form-grid box">
               <textarea
                 className="message"
                 placeholder="Type your message here..."
@@ -36,13 +36,13 @@ export default function Contact() {
               </div>
             </form>
 
-            <div className="resume">
+            <div className="resume box">
               <Resume />
             </div>
-            <div className="mode">
+            <div className="mode box">
               <Mode />
             </div>
-            <div className="socials"></div>
+            <div className="socials box"></div>
           </div>
         </div>
       </Animated>
