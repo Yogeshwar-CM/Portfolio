@@ -1,9 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router";
 import "./styles.css";
 
 export default function Menu() {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
   const sidebarRef = useRef();
 
   const toggleSidebar = () => {
@@ -60,11 +62,39 @@ export default function Menu() {
               <i className="fa-solid fa-times"></i>
             </button>
           </div>
-          <ul className="mt-4">
-            <li className="mt-4">Home</li>
-            <li className="mt-4">About</li>
-            <li className="mt-4">Contact</li>
-            <li className="mt-4">Services</li>
+          <ul className="mt-4 menu-it">
+            <li
+              className="mt-4"
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              Home
+            </li>
+            <li
+              className="mt-4"
+              onClick={() => {
+                navigate("/about");
+              }}
+            >
+              About
+            </li>
+            <li
+              className="mt-4"
+              onClick={() => {
+                navigate("/contact");
+              }}
+            >
+              Contact
+            </li>
+            <li
+              className="mt-4"
+              onClick={() => {
+                navigate("/skills");
+              }}
+            >
+              Services
+            </li>
           </ul>
         </div>
       </motion.div>

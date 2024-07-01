@@ -100,10 +100,46 @@ const Home = () => {
                     </button>
                   </div>
                   <ul className="mt-4">
-                    <li className="mt-4">Home</li>
-                    <li className="mt-4">About</li>
-                    <li className="mt-4">Contact</li>
-                    <li className="mt-4">Services</li>
+                    <li
+                      className="mt-4"
+                      onClick={() => {
+                        navigate("/");
+                      }}
+                    >
+                      Home
+                    </li>
+                    <li
+                      className="mt-4"
+                      onClick={() => {
+                        navigate("/about");
+                      }}
+                    >
+                      About
+                    </li>
+                    <li
+                      className="mt-4"
+                      onClick={() => {
+                        navigate("/contact");
+                      }}
+                    >
+                      Contact
+                    </li>
+                    <li
+                      className="mt-4"
+                      onClick={() => {
+                        navigate("/skills");
+                      }}
+                    >
+                      Services
+                    </li>
+                    <li
+                      className="mt-4"
+                      onClick={() => {
+                        navigate("/projects");
+                      }}
+                    >
+                      Projects
+                    </li>
                   </ul>
                 </div>
               </motion.div>
@@ -120,7 +156,12 @@ const Home = () => {
               ></i>
             </span> */}
             <div className="span">
-              <i className="fa-solid fa-circle-info"></i>
+              <i
+                className="fa-solid fa-circle-info cursor-pointer"
+                onClick={() => {
+                  navigate("/about");
+                }}
+              ></i>
             </div>
           </div>
           <div className="box about">
@@ -158,7 +199,6 @@ const Home = () => {
           <div className="box projects">
             <Projects />
           </div>
-
           <div className="contact box">
             <Form />
           </div>

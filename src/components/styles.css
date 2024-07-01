@@ -323,6 +323,12 @@
   width: 12rem;
   transform: rotate(-90deg) translate(-4rem, 3.5rem);
 }
+.menu-it > li {
+  cursor: pointer;
+}
+.skills-btn {
+  cursor: pointer;
+}
 .proj-btn {
   border: 1px solid var(--font-dark);
   border-radius: 100rem;
@@ -333,6 +339,7 @@
 
 #proj-btn {
   padding: 1rem;
+  cursor: pointer;
   transform: rotate(-45deg);
   transition: all 0.3s;
   border-radius: 100rem;
