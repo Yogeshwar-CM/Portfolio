@@ -1,23 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./styles.css";
 
 export default function Mode() {
-  const [isDarkMode, setIsDarkMode] = useState(true);
-
-  useEffect(() => {
+  const [isDarkMode, setIsDarkMode] = useState(() => {
     const localStorageAvailable = checkLocalStorageAvailability();
-
     if (localStorageAvailable) {
       const savedMode = localStorage.getItem("mode");
-      if (savedMode === "light") {
-        setIsDarkMode(false);
-        document.body.classList.add("light-mode");
-      } else {
-        setIsDarkMode(true);
-        document.body.classList.remove("light-mode");
-      }
+      return savedMode !== "light"; // default to dark mode if no preference is saved
     }
-  }, []);
+    return true; // default to dark mode if localStorage is not available
+  });
 
   const toggleMode = () => {
     const newMode = !isDarkMode;
@@ -25,12 +17,10 @@ export default function Mode() {
     if (checkLocalStorageAvailability()) {
       localStorage.setItem("mode", newMode ? "dark" : "light");
     }
-
-    const body = document.body;
-    body.classList.toggle("light-mode", !newMode);
+    document.body.classList.toggle("light-mode", !newMode);
   };
 
-  const checkLocalStorageAvailability = () => {
+  function checkLocalStorageAvailability() {
     try {
       const testKey = "__localStorageTest__";
       localStorage.setItem(testKey, testKey);
@@ -42,7 +32,7 @@ export default function Mode() {
       );
       return false;
     }
-  };
+  }
 
   return (
     <div className="switch">

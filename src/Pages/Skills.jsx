@@ -2,11 +2,13 @@ import React from "react";
 import Mode from "../components/Mode";
 import Menu from "../components/Menu";
 import Alert from "../components/Alert";
+import { useNavigate } from "react-router";
 import AnimatedPage from "./Animated";
 import "./Skills.css";
 import Resume from "../components/Resume";
 
 export default function Skills() {
+  const nav = useNavigate();
   return (
     <>
       <Alert />

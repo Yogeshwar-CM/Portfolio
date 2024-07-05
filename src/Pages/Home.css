@@ -205,23 +205,6 @@ body {
   cursor: pointer; /* Change cursor to pointer on hover */
 }
 
-body.light-mode {
-  background-color: var(--bg-light);
-  color: var(--font-light);
-}
-
-body.light-mode .sidebar,
-body.light-mode .about,
-body.light-mode .resume,
-body.light-mode .mode,
-body.light-mode .profile,
-body.light-mode .skills,
-body.light-mode .projects,
-body.light-mode .contact {
-  background-color: var(--box-light);
-  color: var(--font-light);
-}
-
 #abt-btn {
   font-size: clamp(1.2rem, 0.979rem + 0.59vw, 1.51rem);
   padding-right: 1rem;
