@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import emailjs from "emailjs-com";
 import "./Contact.css";
 import Alert from "../components/Alert";
 import Animated from "./Animated";
@@ -9,6 +10,44 @@ import Mode from "../components/Mode";
 
 export default function Contact() {
   const nav = useNavigate();
+  const [message, setMessage] = useState("");
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+    setSuccess(false);
+
+    const templateParams = {
+      from_name: name,
+      from_email: email,
+      message: message,
+    };
+
+    emailjs
+      .send(
+        "service_7plmwy9",
+        "template_5opzr4s",
+        templateParams,
+        "bAx9boyeNgiHHiYoF"
+      )
+      .then(
+        (response) => {
+          setLoading(false);
+          setSuccess(true);
+        },
+        (error) => {
+          setLoading(false);
+          setError("Failed to send email.");
+        }
+      );
+  };
+
   return (
     <>
       <Alert />
@@ -22,18 +61,39 @@ export default function Contact() {
       <Animated>
         <div className="Contact">
           <div className="contact-grid">
-            <form className="form-grid box">
+            <form className="form-grid box" onSubmit={handleFormSubmit}>
               <textarea
                 className="message"
                 placeholder="Type your message here..."
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
               ></textarea>
-              <input type="email" className="email" placeholder="Your email" />
-              <input type="text" className="name" placeholder="Your name" />
+              <input
+                type="email"
+                className="email"
+                placeholder="Your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <input
+                type="text"
+                className="name"
+                placeholder="Your name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
               <div className="cb">
-                <div className="contact-btnn">
+                <button
+                  type="submit"
+                  className="contact-btnn"
+                  disabled={loading}
+                >
                   <i className="fa-solid fa-arrow-right text-2xl"></i>
-                </div>
+                </button>
               </div>
+              {loading && <p>Sending email...</p>}
+              {error && <p className="error">{error}</p>}
+              {success && <p className="success">Email sent successfully!</p>}
             </form>
 
             <div className="resume box">
