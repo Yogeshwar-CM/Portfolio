@@ -95,7 +95,6 @@ export default function Contact() {
               {error && <p className="error">{error}</p>}
               {success && <p className="success">Email sent successfully!</p>}
             </form>
-
             <div className="resume box">
               <Resume />
             </div>

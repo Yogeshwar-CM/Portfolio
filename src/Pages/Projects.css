@@ -1,35 +1,60 @@
-.project-grid {
+.projects-container {
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   gap: 0.6rem;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "pl pl pl side"
+    "pl pl pl side"
+    "pl pl pl side";
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+.side {
+  position: fixed;
+  grid-area: side;
+  right: 14%;
+  top: 4%;
+  width: 14vw;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.75fr 1fr 1.5fr;
+  gap: 0.6rem;
   height: 90vh;
   grid-template-areas:
-    "p1 p1 p2 p2"
-    "p1 p1 p2 p2"
-    "p3 p3 p6 mode"
-    "p3 p3 p6 p5"
-    "p4 p4 p4 p5";
+    "resume"
+    "ps"
+    "pss";
+}
+.projects-list {
+  grid-area: pl;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.p1 {
-  grid-area: p1;
+.mode-sidebar {
+  grid-area: ps;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
 }
-.p2 {
-  grid-area: p2;
+
+.resume {
+  grid-area: resume;
 }
-.p3 {
-  grid-area: p3;
+
+.pss {
+  grid-area: pss;
 }
-.p4 {
-  grid-area: p4;
+.project-item > img {
+  border-radius: 0.2rem;
+  width: 30vw;
 }
-.p5 {
-  grid-area: p5;
-}
-.p6 {
-  grid-area: p6;
-}
-.mode {
-  grid-area: mode;
+.project-item {
+  height: fit-content;
+  gap: 2rem;
+  display: flex;
+  padding: 1rem 0.75rem;
 }

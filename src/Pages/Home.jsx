@@ -63,8 +63,8 @@ const Home = () => {
 
   return (
     <>
-      <div className="cold2"></div>
-      <div className="cold"></div>
+      {/* <div className="cold2"></div>
+      <div className="cold"></div> */}
       <Alert />
       <span className="menu-s">
         <Menu />
