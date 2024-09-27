@@ -4,14 +4,14 @@ body {
   font-family: var(--font-primary);
 }
 .cold {
-  width: 12rem;
-  height: 16rem;
-  background-color: #1c23af87;
-  filter: blur(4rem);
+  width: 22rem;
+  height: 20rem;
+  background-color: rgba(105, 197, 250, 0.65);
+  filter: blur(5rem);
   z-index: -10;
-  animation: mov 10s linear infinite;
   border-radius: 2rem;
   position: absolute;
+  pointer-events: none;
 }
 .cold2 {
   width: 12rem;

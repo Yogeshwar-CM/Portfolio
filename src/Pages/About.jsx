@@ -6,6 +6,7 @@ import { useNavigate } from "react-router";
 import Menu from "../components/Menu";
 import Resume from "../components/Resume";
 import Mode from "../components/Mode";
+import Socials from "../components/Socials";
 
 export default function About() {
   const nav = useNavigate();
@@ -192,7 +193,9 @@ export default function About() {
             <div className="mode box">
               <Mode />
             </div>
-            <div className="socials box"></div>
+            <div className="socials box">
+              <Socials />
+            </div>
           </div>
         </div>
       </Animated>

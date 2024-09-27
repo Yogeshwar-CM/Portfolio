@@ -15,15 +15,19 @@ import Menu from "../components/Menu";
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
   const sidebarRef = useRef();
+  const coldRef = useRef();
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
+  const [rc, setRc] = useState(false);
+  const [popoverOpen, setPopoverOpen] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
-
     return () => clearTimeout(timeout);
   }, []);
+
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
@@ -45,13 +49,39 @@ const Home = () => {
     };
   }, [isOpen]);
 
+  const handleMouseMove = (event) => {
+    if (coldRef.current) {
+      coldRef.current.style.left = `${event.clientX - 100}px`;
+      coldRef.current.style.top = `${event.clientY - 100}px`;
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
   const sidebarVariants = {
     open: { x: 0, opacity: 1 },
     closed: { x: "-100%", opacity: 0 },
   };
-  const [rc, setRc] = useState(false);
-  const navigate = useNavigate();
-  const [popoverOpen, setPopoverOpen] = useState(false);
+
+  const boxVariants = {
+    hidden: { opacity: 0, x: "-100vw" },
+    visible: (direction) => ({
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "spring",
+        stiffness: 50,
+        damping: 20,
+      },
+    }),
+  };
+
   const bellClicked = () => {
     setRc(true);
     setPopoverOpen(true);
@@ -63,15 +93,20 @@ const Home = () => {
 
   return (
     <>
-      {/* <div className="cold2"></div>
-      <div className="cold"></div> */}
+      {/* <div className="cold" ref={coldRef}></div> */}
       <Alert />
       <span className="menu-s">
         <Menu />
       </span>
       <AnimatedPage>
         <div className="Home">
-          <div className="sidebar box">
+          <motion.div
+            className="sidebar box"
+            initial="hidden"
+            animate="visible"
+            variants={boxVariants}
+            custom="left"
+          >
             <span>
               <button onClick={toggleSidebar}>
                 <i className="fa-solid fa-bars-staggered text-2xl"></i>
@@ -92,7 +127,7 @@ const Home = () => {
                 className="fixed top-0 left-0 h-full w-64 sb text-white shadow-lg"
                 style={{ zIndex: 9999999999 }}
               >
-                <div className="p-4 flex flex-col h-full">
+                <div className="p-4 flex flex-col h-full"> 
                   <div className="flex justify-between items-center">
                     <h2 className="text-2xl">Menu</h2>
                     <button onClick={toggleSidebar} className="text-2xl">
@@ -144,17 +179,6 @@ const Home = () => {
                 </div>
               </motion.div>
             </span>
-            {/* <span>
-              <i className="fa-solid fa-house"></i>
-              <i className="fa-solid fa-file"></i>
-              <i className="fa-solid fa-gears"></i>
-              <i
-                className="fa-solid fa-paper-plane"
-                onClick={() => {
-                  navigate("/contact");
-                }}
-              ></i>
-            </span> */}
             <div className="span">
               <i
                 className="fa-solid fa-circle-info cursor-pointer"
@@ -163,8 +187,15 @@ const Home = () => {
                 }}
               ></i>
             </div>
-          </div>
-          <div className="box about">
+          </motion.div>
+
+          <motion.div
+            className="box about"
+            initial="hidden"
+            animate="visible"
+            variants={boxVariants}
+            custom="right"
+          >
             <div className="hey">
               Hello There, I am <span className="name">Yogeshwar</span>
               <br /> FullStack Developer and Designer
@@ -178,30 +209,70 @@ const Home = () => {
               <i className="fa-solid fa-arrow-right" id="abt-btn"></i>
               About Me
             </div>
-          </div>
-          <div
+          </motion.div>
+
+          <motion.div
             className="profile box"
+            initial="hidden"
+            animate="visible"
+            variants={boxVariants}
+            custom="right"
             onClick={() => {
               navigate("/about");
             }}
           >
             <img src={profile} alt="profile picture" className="profile-pic" />
-          </div>
-          <div className="mode box">
+          </motion.div>
+
+          <motion.div
+            className="mode box"
+            initial="hidden"
+            animate="visible"
+            variants={boxVariants}
+            custom="bottom"
+          >
             <Mode />
-          </div>
-          <div className="skills box">
+          </motion.div>
+
+          <motion.div
+            className="skills box"
+            initial="hidden"
+            animate="visible"
+            variants={boxVariants}
+            custom="bottom"
+          >
             <Skills />
-          </div>
-          <div className="box resume">
+          </motion.div>
+
+          <motion.div
+            className="box resume"
+            initial="hidden"
+            animate="visible"
+            variants={boxVariants}
+            custom="right"
+          >
             <Resume />
-          </div>
-          <div className="box projects">
+          </motion.div>
+
+          <motion.div
+            className="box projects"
+            initial="hidden"
+            animate="visible"
+            variants={boxVariants}
+            custom="left"
+          >
             <Projects />
-          </div>
-          <div className="contact box">
+          </motion.div>
+
+          <motion.div
+            className="contact box"
+            initial="hidden"
+            animate="visible"
+            variants={boxVariants}
+            custom="bottom"
+          >
             <Form />
-          </div>
+          </motion.div>
         </div>
       </AnimatedPage>
     </>

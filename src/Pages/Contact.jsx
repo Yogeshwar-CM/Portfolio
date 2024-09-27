@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./Contact.css";
 import Alert from "../components/Alert";
 import Animated from "./Animated";
@@ -7,6 +9,7 @@ import { useNavigate } from "react-router";
 import Menu from "../components/Menu";
 import Resume from "../components/Resume";
 import Mode from "../components/Mode";
+import Socials from "../components/Socials";
 
 export default function Contact() {
   const nav = useNavigate();
@@ -14,14 +17,18 @@ export default function Contact() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(false);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+
+    // Validation: Ensure fields are not empty
+    if (!name || !email || !message) {
+      toast.error("Please fill out all fields.");
+      return;
+    }
+
     setLoading(true);
-    setError(null);
-    setSuccess(false);
+    toast.info("Email Sending...");
 
     const templateParams = {
       from_name: name,
@@ -39,17 +46,18 @@ export default function Contact() {
       .then(
         (response) => {
           setLoading(false);
-          setSuccess(true);
+          toast.success("Email sent successfully!");
         },
         (error) => {
           setLoading(false);
-          setError("Failed to send email.");
+          toast.error("Failed to send email.");
         }
       );
   };
 
   return (
     <>
+      <ToastContainer />
       <Alert />
       <Menu />
       <i
@@ -91,9 +99,6 @@ export default function Contact() {
                   <i className="fa-solid fa-arrow-right text-2xl"></i>
                 </button>
               </div>
-              {loading && <p>Sending email...</p>}
-              {error && <p className="error">{error}</p>}
-              {success && <p className="success">Email sent successfully!</p>}
             </form>
             <div className="resume box">
               <Resume />
@@ -101,7 +106,9 @@ export default function Contact() {
             <div className="mode box">
               <Mode />
             </div>
-            <div className="socials box"></div>
+            <div className="socials box">
+              <Socials />
+            </div>
           </div>
         </div>
       </Animated>
