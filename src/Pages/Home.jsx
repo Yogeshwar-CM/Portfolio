@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import profile from "../assets/profile.jpeg";
 import { motion } from "framer-motion";
 import "./Home.css";
+import Sidebar from "../components/Sidebar";
 import AnimatedPage from "./Animated";
 import Mode from "../components/Mode";
 import Skills from "../components/Skills";
@@ -70,14 +71,14 @@ const Home = () => {
   };
 
   const boxVariants = {
-    hidden: { opacity: 0, x: "-100vw" },
+    hidden: { opacity: 0, y: "10vh" },
     visible: (direction) => ({
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: {
         type: "spring",
-        stiffness: 50,
-        damping: 20,
+        stiffness: 100,
+        damping: 10,
       },
     }),
   };
@@ -93,102 +94,13 @@ const Home = () => {
 
   return (
     <>
-      {/* <div className="cold" ref={coldRef}></div> */}
       <Alert />
       <span className="menu-s">
         <Menu />
       </span>
       <AnimatedPage>
         <div className="Home">
-          <motion.div
-            className="sidebar box"
-            initial="hidden"
-            animate="visible"
-            variants={boxVariants}
-            custom="left"
-          >
-            <span>
-              <button onClick={toggleSidebar}>
-                <i className="fa-solid fa-bars-staggered text-2xl"></i>
-              </button>
-              {isOpen && (
-                <div
-                  className="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm"
-                  style={{ zIndex: 9999999990 }}
-                  onClick={handleClickOutside}
-                />
-              )}
-              <motion.div
-                ref={sidebarRef}
-                initial="closed"
-                animate={isOpen ? "open" : "closed"}
-                variants={sidebarVariants}
-                transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className="fixed top-0 left-0 h-full w-64 sb text-white shadow-lg"
-                style={{ zIndex: 9999999999 }}
-              >
-                <div className="p-4 flex flex-col h-full"> 
-                  <div className="flex justify-between items-center">
-                    <h2 className="text-2xl">Menu</h2>
-                    <button onClick={toggleSidebar} className="text-2xl">
-                      <i className="fa-solid fa-times"></i>
-                    </button>
-                  </div>
-                  <ul className="mt-4">
-                    <li
-                      className="mt-4"
-                      onClick={() => {
-                        navigate("/");
-                      }}
-                    >
-                      Home
-                    </li>
-                    <li
-                      className="mt-4"
-                      onClick={() => {
-                        navigate("/about");
-                      }}
-                    >
-                      About
-                    </li>
-                    <li
-                      className="mt-4"
-                      onClick={() => {
-                        navigate("/contact");
-                      }}
-                    >
-                      Contact
-                    </li>
-                    <li
-                      className="mt-4"
-                      onClick={() => {
-                        navigate("/skills");
-                      }}
-                    >
-                      Services
-                    </li>
-                    <li
-                      className="mt-4"
-                      onClick={() => {
-                        navigate("/projects");
-                      }}
-                    >
-                      Projects
-                    </li>
-                  </ul>
-                </div>
-              </motion.div>
-            </span>
-            <div className="span">
-              <i
-                className="fa-solid fa-circle-info cursor-pointer"
-                onClick={() => {
-                  navigate("/about");
-                }}
-              ></i>
-            </div>
-          </motion.div>
-
+          <Sidebar />
           <motion.div
             className="box about"
             initial="hidden"

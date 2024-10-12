@@ -18,7 +18,9 @@
     "react-router": "^6.23.1",
     "react-router-dom": "^6.23.1",
     "react-toastify": "^10.0.5",
-    "remark-gfm": "^4.0.0"
+    "react-tooltip": "^5.28.0",
+    "remark-gfm": "^4.0.0",
+    "vertical-timeline-component-react": "^4.4.3"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

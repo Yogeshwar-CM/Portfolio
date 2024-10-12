@@ -300,6 +300,7 @@
   filter: saturate(0);
   color: white;
 }
+
 .socials {
   display: flex;
   gap: 1rem;

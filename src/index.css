@@ -13,24 +13,27 @@
   --bg-dark: #090014;
   --font-dark: #ffffff;
   --box-dark: #181022;
-  --theme-dark: #26ffe9;
+  --theme-dark: #eabf22;
   --font-secondary-dark: #dcdcdc;
 }
 
 body {
-  /* background-image: url("./assets//bg.jpg"); */
+  background-image: url("./assets/bg.png");
+  object-fit: none;
   color: var(--font-dark);
   font-family: var(--font-primary);
   background-color: var(--bg-dark);
   overflow-y: hidden;
+  background-repeat: no-repeat; /* Prevents the background from repeating */
+  background-size: cover; /* Optionally, this ensures the background covers the entire page */
 }
 
 .box {
-  background: rgba(24, 4, 49, 0.75);
-  /* box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-
+  background: rgba(23, 23, 23, 0.5);
+  /* box-shadow: 0px 2px 8px 0px rgba(99, 99, 99, 0.25); */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
   border-radius: 10px;
 }
 
@@ -46,13 +49,13 @@ body {
 
 /* Light mode styles */
 body.light-mode {
-  background-color: var(--bg-light);
+  background-image: url("./assets/bgl.png");
   color: var(--font-light);
 }
 
 body.light-mode .box {
-  background: rgba(245, 166, 35, 0.35);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(183, 183, 183, 0.37);
   backdrop-filter: blur(13px);
   -webkit-backdrop-filter: blur(13px);
   border-radius: 10px;

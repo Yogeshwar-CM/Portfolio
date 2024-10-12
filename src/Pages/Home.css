@@ -85,7 +85,8 @@ body {
   padding-top: 2rem;
   z-index: 100;
   padding-bottom: 2rem;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 5vh;
 }
 .sidebar span {
   display: flex;

@@ -3,6 +3,7 @@ import Mode from "../components/Mode";
 import Menu from "../components/Menu";
 import Alert from "../components/Alert";
 import { useNavigate } from "react-router";
+import Sidebar from "../components/Sidebar";
 import AnimatedPage from "./Animated";
 import "./Skills.css";
 import Resume from "../components/Resume";
@@ -12,15 +13,16 @@ export default function Skills() {
   return (
     <>
       <Alert />
-      <Menu />
-      <i
+      {/* <Menu /> */}
+      {/* <i
         className="fa-solid fa-rotate-left cursor-pointer absolute text-xl top-3 right-4 pt-1 pr-2 hidden sm:block"
         onClick={() => {
           nav("/");
         }}
-      ></i>
+      ></i> */}
       <AnimatedPage>
         <div className="skills-grid">
+          <Sidebar />
           <div className="mode box">
             <Mode />
           </div>

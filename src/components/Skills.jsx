@@ -1,6 +1,10 @@
 import React from "react";
 import figmadark from "../assets/figmadark.svg";
 import jsdark from "../assets/jsdark.svg";
+import reactdark from "../assets/reactjsdark.svg";
+import postmandark from "../assets/postmandark.svg";
+import tailwinddark from "../assets/tailwinddark.svg";
+import pythondark from "../assets/pythondark.svg";
 import { useNavigate } from "react-router";
 import "./styles.css";
 
@@ -12,19 +16,19 @@ export default function Skills() {
         <div className="scroll">
           <div className="m-scroll">
             <span className="skill-icon">
-              <img src={jsdark} />
+              <img src={pythondark} />
+            </span>
+            <span className="skill-icon">
+              <img src={reactdark} />
             </span>
             <span className="skill-icon">
               <img src={jsdark} />
             </span>
             <span className="skill-icon">
-              <img src={jsdark} />
+              <img src={postmandark} />
             </span>
             <span className="skill-icon">
-              <img src={jsdark} />
-            </span>
-            <span className="skill-icon">
-              <img src={jsdark} />
+              <img src={tailwinddark} />
             </span>
             <span className="skill-icon">
               <img src={jsdark} />

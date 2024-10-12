@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./Contact.css";
 import Alert from "../components/Alert";
 import Animated from "./Animated";
+import Sidebar from "../components/Sidebar";
 import { useNavigate } from "react-router";
 import Menu from "../components/Menu";
 import Resume from "../components/Resume";
@@ -59,16 +60,17 @@ export default function Contact() {
     <>
       <ToastContainer />
       <Alert />
-      <Menu />
+      {/* <Menu />
       <i
         className="fa-solid fa-rotate-left cursor-pointer absolute text-xl top-3 right-4 pt-1 pr-2 hidden sm:block"
         onClick={() => {
           nav("/");
         }}
-      ></i>
+      ></i> */}
       <Animated>
         <div className="Contact">
           <div className="contact-grid">
+            <Sidebar />
             <form className="form-grid box" onSubmit={handleFormSubmit}>
               <textarea
                 className="message"

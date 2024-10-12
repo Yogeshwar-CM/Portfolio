@@ -1,15 +1,15 @@
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 0.25fr repeat(4, 1fr);
   grid-template-rows: repeat(3, auto);
   margin-top: 2.5rem;
   gap: 1rem;
   height: 90vh;
   grid-template-areas:
-    "form form form resume"
-    "form form form mode"
-    "form form form socials"
-    "form form form socials";
+    "sidebar form form form resume"
+    "sidebar form form form mode"
+    "sidebar form form form socials"
+    "sidebar form form form socials";
 }
 
 .resume {
@@ -28,16 +28,26 @@
 
 .socials {
   grid-area: socials;
+  height: 100%;
   background-color: var(--box-dark);
   padding: 16px;
   border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .form-grid > input,
 .form-grid > textarea {
   border-radius: 0.25rem;
   font-size: 1rem;
   padding: 1rem;
-  background: #211e24;
+  background: #3a3a3a58;
+}
+.form-grid > input:focus,
+.form-grid > textarea:focus {
+  outline: none;
+  border: 2px solid #6f684051;
 }
 .form-grid {
   grid-area: form;
@@ -65,8 +75,8 @@
   overflow: hidden;
   cursor: pointer;
   height: 4rem;
-  background-color: #007bff; /* Background color of the button */
-  transition: background-color 0.3s ease; /* Smooth transition for background color change */
+  background-color: #d2b026ab;
+  transition: background-color 0.3s ease;
 }
 
 .contact-btnn > i {
@@ -76,7 +86,7 @@
 }
 
 .contact-btnn:hover {
-  background-color: #0056b3;
+  background-color: #d2b02641;
 }
 
 .contact-btnn:hover > i {
