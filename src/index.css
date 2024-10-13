@@ -1,5 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Coming+Soon&family=Michroma&family=VT323&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Michroma&family=VT323&display=swap");
 :root {
-  --font-primary: "Roboto", sans-serif;
+  /* --font-primary: "Michroma", sans-serif; */
+  --font-primary: "Coming Soon", cursive;
+  /* --font-primary: "VT323", monospace; */
   --bc: clamp(0.8rem, 0.479rem + 0.857vw, 1.25rem);
   /* Light Mode Variables */
   --bg-light: #ffffff;
@@ -19,35 +24,32 @@
 
 body {
   background-image: url("./assets/bg.png");
+  background-color: #131313;
   object-fit: none;
   color: var(--font-dark);
   font-family: var(--font-primary);
-  background-color: var(--bg-dark);
   overflow-y: hidden;
-  background-repeat: no-repeat; /* Prevents the background from repeating */
-  background-size: cover; /* Optionally, this ensures the background covers the entire page */
+  background-size: cover;
 }
 
 .box {
-  background: rgba(23, 23, 23, 0.5);
-  /* box-shadow: 0px 2px 8px 0px rgba(99, 99, 99, 0.25); */
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(23, 23, 23, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(1px);
   border-radius: 10px;
 }
-
-/* Theme color */
+.box:hover {
+  border: 1px solid rgba(255, 255, 255, 0.21);
+}
 .theme {
   color: var(--theme-dark);
 }
 
-/* Secondary font color */
 .secondary-font {
   color: var(--font-secondary-dark);
 }
 
-/* Light mode styles */
 body.light-mode {
   background-image: url("./assets/bgl.png");
   color: var(--font-light);

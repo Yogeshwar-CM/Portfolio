@@ -1,10 +1,10 @@
 import React from "react";
-import figmadark from "../assets/figmadark.svg";
-import jsdark from "../assets/jsdark.svg";
-import reactdark from "../assets/reactjsdark.svg";
-import postmandark from "../assets/postmandark.svg";
-import tailwinddark from "../assets/tailwinddark.svg";
-import pythondark from "../assets/pythondark.svg";
+import figmadark from "../assets/figma.svg";
+import jsdark from "../assets/js.svg";
+import reactdark from "../assets/reactjs.svg";
+import postmandark from "../assets/postman.svg";
+import tailwinddark from "../assets/tailwind.svg";
+import pythondark from "../assets/python.svg";
 import { useNavigate } from "react-router";
 import "./styles.css";
 
